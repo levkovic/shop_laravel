@@ -4,9 +4,9 @@
 
             {!! Breadcrumbs::render('home') !!}
 <div class="col-md-2">
-            <div class="list-group">
+            <div class="btn-group-vertical">
                 @foreach($categories as $category)
-                <a href="{{ route('category.show', $category->id) }}" class="btn list-group-item">{{ $category->name }}</a>
+                <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary" >{{ $category->name }}</a>
                 @endforeach
             </div> 
 </div>
@@ -15,13 +15,13 @@
 
         @foreach($products as $product)
         
-        <a href="{{ route('product.show', $product->id) }}" style="text-decoration: none; color: black;">
+        <a href="{{ route('product.show', ['id' => $product->id]) }}" style="text-decoration: none; color: black;">
         <div class="col-md-4">
             <div class="well well-sm" style="text-align: center;">
                 <img style="width: 300px; height: 300px;" src="/images/products/{{ $product->image }}.jpg" class="img-thumbnail">
                 <h4>{{ $product->shortTitle() }}</h4>
                 <b>{{ $product->price }}грн</b>
-                <a href="{{ route('product.addToCart', $product->id)}}" class="btn btn-success btn-block">Купить</a>
+                <a href="{{ route('addToCart', ['id' => $product->id]) }}" class="btn btn-success btn-block">Купить</a>
             </div>
         </div>
         </a>

@@ -3,9 +3,9 @@
 @section('content')
 {!! Breadcrumbs::render('category.show', $selected_category) !!}
 <div class="col-md-2">
-            <div class="list-group">
+            <div class="btn-group-vertical">
                 @foreach($categories as $category)
-                <a href="{{ route('category.show', $category->id) }}" class="btn list-group-item">{{ $category->name }}</a>
+                <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary" >{{ $category->name }}</a>
                 @endforeach
             </div> 
 </div>

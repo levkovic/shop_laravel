@@ -17,7 +17,15 @@
                 <li><a href="#">Аксессуары/Запчасти</a></li> 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a></li>
+                <li>
+
+                    <a href="{{ route('product.shoppingCart') }}">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> 
+                        Корзина 
+                        <span class=" label label-success">{{ Session::has('cart') ? Session::get('cart')->totalQ : '' }}</span>
+                    </a>
+
+                </li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
             </ul>

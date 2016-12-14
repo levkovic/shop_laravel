@@ -10,8 +10,15 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::get('/add-to-cart/{$id}', ['uses' => 'ProductsController@getAddToCart]',
-	'as' => 'product.addToCart']);
+Route::get('add-to-cart/{id}', [
+	'as' => 'addToCart',
+	'uses' => 'ProductsController@getAddToCart'
+	]);
+
+Route::get('shopping-cart', [
+	'as' => 'product.shoppingCart',
+	'uses' => 'ProductsController@getCart'
+	]);
 
 Route::get('/',['as' => 'home', 'uses' => 'SiteController@getIndex']);
 

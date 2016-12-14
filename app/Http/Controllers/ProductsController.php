@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Cart;
+use Session;
 
 class ProductsController extends Controller
 {
@@ -89,12 +90,22 @@ class ProductsController extends Controller
 
     public function getAddToCart(Request $request, $id){
         $product = Product::find($id);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        
+        $oldCart =Session::has('cart') ? Session::get('cart') : "";
+
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
-
         $request->session()->put('cart', $cart);
-        dd($request->session()->get('cart'));
         return redirect()->route('home');
+    }
+
+    public function getCart(){
+        if(!Session::has('cart')){
+            return view('pages.shopping-cart', ['product' => null]);
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('pages.shopping-cart', ['products' => $cart->items, 'totalP' => $cart->totalP]);
     }
 }
