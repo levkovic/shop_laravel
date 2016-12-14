@@ -6,7 +6,7 @@
 <div class="col-md-2">
             <div class="btn-group-vertical">
                 @foreach($categories as $category)
-                <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary" >{{ $category->name }}</a>
+                <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary btn-block" >{{ $category->name }}</a>
                 @endforeach
             </div> 
 </div>

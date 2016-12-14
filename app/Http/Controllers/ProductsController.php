@@ -96,7 +96,7 @@ class ProductsController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
         $request->session()->put('cart', $cart);
-        return redirect()->route('home');
+        return back();
     }
 
     public function getCart(){
@@ -107,5 +107,33 @@ class ProductsController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         return view('pages.shopping-cart', ['products' => $cart->items, 'totalP' => $cart->totalP]);
+    }
+
+    public function getRemoveFromCart(Request $request, $id){
+        $product = Product::find($id);
+
+        $cart = Session::get('cart');
+        $cart->remove($product, $product->id);
+        if($cart->totalQ != 0){
+            $request->session()->put('cart', $cart);
+        }
+        else{
+            $request->session()->forget('cart');
+        }
+        return back();
+    }
+
+    public function getDeleteFromCart(Request $request, $id){
+        $product = Product::find($id);
+
+        $cart = Session::get('cart');
+        $cart->delete($product, $product->id);
+        if($cart->totalQ != 0){
+            $request->session()->put('cart', $cart);
+        }
+        else{
+            $request->session()->forget('cart');
+        }
+        return back();
     }
 }

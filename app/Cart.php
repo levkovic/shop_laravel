@@ -30,4 +30,28 @@ class Cart{
 		$this->totalQ++;
 		$this->totalP += $item->price;
 	}
+
+	public function remove($item, $id){
+		$storedItem = $this->items[$id];
+		if($storedItem['qty'] == 1){
+			$this->totalQ--;
+			$this->totalP -= $item->price;
+			unset($this->items[$id]);
+		}
+		else{
+			$storedItem['qty']--;
+			$storedItem['price'] -= $item->price;
+			$this->items[$id] = $storedItem;
+			$this->totalQ--;
+			$this->totalP -= $item->price; 
+		}
+		
+	}
+
+	public function delete($item, $id){
+		$storedItem = $this->items[$id];
+		$this->totalQ -= $storedItem['qty'];
+		$this->totalP -= $storedItem['price'];
+		unset($this->items[$id]); 
+	}
 }
