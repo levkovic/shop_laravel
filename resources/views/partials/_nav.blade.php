@@ -24,7 +24,7 @@
                         Корзина 
                         <span class=" label label-success">{{ Session::has('cart') ? Session::get('cart')->totalQ : '' }}</span>
                     </a>
-
+                    
                 </li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>

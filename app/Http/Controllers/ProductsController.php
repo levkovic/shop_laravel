@@ -96,12 +96,13 @@ class ProductsController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
         $request->session()->put('cart', $cart);
+        Session::flash('success', 'Товар добавлен в корзину');
         return back();
     }
 
     public function getCart(){
         if(!Session::has('cart')){
-            return view('pages.shopping-cart', ['product' => null]);
+            return view('pages.shopping-cart');
         }
 
         $oldCart = Session::get('cart');
@@ -135,5 +136,18 @@ class ProductsController extends Controller
             $request->session()->forget('cart');
         }
         return back();
+    }
+
+    public function getCheckout(){
+        if(!Session::has('cart')){
+            return view('pages.shopping-cart');
+        }
+
+        return view('pages.checkout');
+    }
+
+    public function postCheckout(){
+        Session::flash('ordered', 'Ваш заказ принят в обработку в ближайшее время с вами свяжется наш менеджер! Спасибо');
+        return redirect(route('home'));
     }
 }

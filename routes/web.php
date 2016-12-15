@@ -10,6 +10,16 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+Route::get('checkout', [
+	'as' => 'checkout',
+	'uses' => 'ProductsController@getCheckout'
+	]);
+
+Route::post('checkout', [
+	'as' => 'checkout',
+	'uses' => 'ProductsController@postCheckout'
+	]);
+
 Route::get('delete-from-cart/{id}', [
 	'as' => 'deleteFromCart',
 	'uses' => 'ProductsController@getDeleteFromCart'
