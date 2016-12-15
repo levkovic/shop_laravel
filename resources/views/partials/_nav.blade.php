@@ -10,11 +10,11 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Электронные сигареты</a></li>
-                <li><a href="#">Боксы</a></li>
-                <li><a href="#">Атомайзеры</a></li> 
-                <li><a href="#">Жидкости</a></li> 
-                <li><a href="#">Аксессуары/Запчасти</a></li> 
+                <li class="active"><a href="#">Каталог</a></li>
+                <li><a href="#">Как оформить заказ</a></li>
+                <li><a href="#">Вики</a></li> 
+                <li><a href="#">Б/у</a></li> 
+                <li><a href="#">Сервис</a></li> 
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>

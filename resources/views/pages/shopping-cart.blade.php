@@ -60,6 +60,7 @@
 	<div class="col-md-8 col-md-offset-2">
 			<div class="well well-lg">
 		<h1>Самое время бросить курить!</h1>
+		<a href="{{ route('home') }}" class="btn btn-success btn-block">Продолжить покупки</a>
 	</div>
 	</div>
 

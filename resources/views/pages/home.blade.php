@@ -2,7 +2,6 @@
 
 @section('content')
 
-            {!! Breadcrumbs::render('home') !!}
 <div class="col-md-2">
             <div class="btn-group-vertical">
                 @foreach($categories as $category)
@@ -21,7 +20,7 @@
                 <img style="width: 300px; height: 300px;" src="/images/products/{{ $product->image }}.jpg" class="img-thumbnail">
                 <h4>{{ $product->shortTitle() }}</h4>
                 <b>{{ $product->price }}грн</b>
-                <a href="{{ route('addToCart', ['id' => $product->id]) }}" class="btn btn-success btn-block">Купить</a>
+                <a href="{{ route('addToCart', ['id' => $product->id]) }}" class="btn btn-success btn-block"><span class="glyphicon glyphicon-shopping-cart"></span> Добавить в корзину</a>
             </div>
         </div>
         </a>
