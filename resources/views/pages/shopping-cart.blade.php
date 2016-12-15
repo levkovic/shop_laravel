@@ -3,7 +3,15 @@
 @section('content')
 
 	@if(Session::has('cart'))
+		{!! Breadcrumbs::render('shopping-cart') !!}
 		<div class="container">
+		<div class="row">
+		    <div class="col-md-12">
+		        <div class="well">
+		        <strong>Корзина</strong>
+		        </div>
+		    </div>
+		</div>
 			<div class="row">
 				
 				<table class="table">
@@ -50,7 +58,7 @@
 
 			<div class="well">
 				<a href="{{ route('home') }}" class="btn btn-success">Продолжить покупки</a>
-				<a href="#" class="btn btn-success pull-right">Оформить заказ</a>
+				<a href="{{ route('checkout') }}" class="btn btn-success pull-right">Оформить заказ</a>
 			</div>
 		</div>
 				
